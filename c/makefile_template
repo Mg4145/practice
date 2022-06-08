@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -g -Wall
+LDFLAGS = -g
+LDLIBS = 
+
+PHONY: clean
+clean: 
+	rm -rf *.o core <executable>
+
+.PHONY: all 
+all: clean <executable> 
+
+.PHONY: run
+run: <excutable>
+	./<executable>
+
+.PHONY: vg
+vg: <executable>
+	valgrind --leak-check=yes ./<executable>
