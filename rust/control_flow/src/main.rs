@@ -90,6 +90,15 @@ fn main() {
         print!("{}...", number);
     }
     println!("LIFTOFF!");
+
+    let tmp = 32.0;
+    println!("Fahrenheit to Celsius: {:.3}F = {:.3}C", tmp, temp_conversion(true, tmp));
+    let tmp = 0.0;
+    println!("Celsius to Fahrenheit: {:.3}C = {:.3}F", tmp, temp_conversion(false, tmp));
+
+    for num in 0..10 {
+        println!("Fib = {}", fib(num));
+    }
 }
 
 
@@ -113,4 +122,29 @@ fn txtbk_loop() {
         count += 1;
     }
     println!("End count = {}", count);
+}
+
+/*
+ * Converting between Fahrenheit and Celsius
+ */
+
+fn temp_conversion(bin: bool, tmp: f64) -> f64 {
+    if bin {
+        (tmp - 32.0) * 5.0/9.0
+    } else {
+        tmp*9.0/5.0 + 32.0
+    }
+}
+
+
+/*
+ * The nth Fibonacci Number
+ */
+
+fn fib(num: u32) -> u32 {
+    match num {
+        0 => 1,
+        1 => 2,
+        _ => fib(num - 1) + fib(num -2)
+    }
 }
