@@ -1,3 +1,22 @@
+def insertion_sort_inc(arr):
+    """ Insertion Sort Algorithm """
+    for i in range(1, len(arr)):
+        key = arr[i]
+        # print("key =\t\t", key)
+        j = i - 1
+        # print("j =\t\t", j)
+        while j >= 0 and key > arr[j]:
+            arr[j + 1] = arr[j]
+            # print("arr[j+1] =\t", arr[j+1])
+            # print(arr)
+            j -= 1
+            # print("j =\t\t", j)
+        arr[j + 1] = key
+        # print(arr)
+        # print("arr[j+1] =\t", arr[j+1])
+        # print()
+
+
 def insertion_sort(arr):
     """ Insertion Sort Algorithm """
     for i in range(1, len(arr)):
@@ -25,6 +44,8 @@ def main():
     my_list = ['b', 'e', 'a', 'n', 's']
     print(my_list)
     insertion_sort(my_list)
+    print(my_list)
+    insertion_sort_inc(my_list)
     print(my_list)
 
 
