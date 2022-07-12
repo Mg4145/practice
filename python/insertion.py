@@ -2,19 +2,19 @@ def insertion_sort(arr):
     """ Insertion Sort Algorithm """
     for i in range(1, len(arr)):
         key = arr[i]
-        print("key =\t\t", key)
+        # print("key =\t\t", key)
         j = i - 1
-        print("j =\t\t", j)
+        # print("j =\t\t", j)
         while j >= 0 and key < arr[j]:
             arr[j + 1] = arr[j]
-            print("arr[j+1] =\t", arr[j+1])
-            print(arr)
+            # print("arr[j+1] =\t", arr[j+1])
+            # print(arr)
             j -= 1
-            print("j =\t\t", j)
+            # print("j =\t\t", j)
         arr[j + 1] = key
-        print(arr)
-        print("arr[j+1] =\t", arr[j+1])
-        print()
+        # print(arr)
+        # print("arr[j+1] =\t", arr[j+1])
+        # print()
 
 
 def main():
