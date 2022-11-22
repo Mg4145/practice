@@ -6,14 +6,17 @@ fn main() {
      * To make them mutable use the mut keyword
      */
 
+    println!("{}", fibonacci(10));
+
     let mut x = 5;
     println!("The value of x is {}", x);
     x = 6;
     println!("The value of x is {}", x);
 
-
-    println!("Global constant declared outside of main function {}",
-             THREE_HOURS_IN_SECONDS);
+    println!(
+        "Global constant declared outside of main function {}",
+        THREE_HOURS_IN_SECONDS
+    );
 
     /*
      * Up next we will show  the power of shadowing in action
@@ -104,7 +107,7 @@ fn main() {
      */
 
     let my_float_64 = 2.0; // f64
-    let my_float_32 : f32 = 3.0; // f32
+    let my_float_32: f32 = 3.0; // f32
 
     println!("This is a 64 bit float:\t{}", my_float_64);
     println!("This is a 32 bit float:\t{}", my_float_32);
@@ -121,7 +124,7 @@ fn main() {
      */
 
     let c = 'z';
-    let x ='ℤ';
+    let x = 'ℤ';
     let cat = '😻';
 
     println!("Here are some characters!\n{}\n{}\n{}", c, x, cat);
@@ -162,5 +165,12 @@ fn main() {
 
     let all_same_values = [5; 10]; // The value, the number of elements
     println!("{:?}", all_same_values);
+}
 
+fn fibonacci(number: u32) -> u32 {
+    match number {
+        0 => 0,
+        1 => 1,
+        _ => fibonacci(number - 1) + fibonacci(number - 2),
+    }
 }
