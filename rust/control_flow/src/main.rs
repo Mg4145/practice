@@ -1,4 +1,4 @@
-/*
+/**
  * Conditionals MUST BE A BOOLEAN
  * In other words, this would not be valid
  *      let value = 3;
@@ -6,7 +6,6 @@
  *          println!("This is not valid");
  *      }
  */
-
 
 fn main() {
     let num = 5;
@@ -37,9 +36,7 @@ fn main() {
     // This will not execute because of type mismatch!
     //     let number = if condition { 5 } else { "six" };
 
-    /*
-     * Repition with loops
-     */
+    /* Repetition with loops */
 
     // The first kind of loop is loop by itself
     let mut x = 0;
@@ -53,9 +50,7 @@ fn main() {
 
     txtbk_loop();
 
-    /*
-     * Conditional Loops with While
-     */
+    /* Conditional Loops with While */
 
     let mut number = 3;
     while number != 0 {
@@ -64,9 +59,7 @@ fn main() {
     }
     println!("LIFTOFF!");
 
-    /*
-     * Looping through a collection using for
-     */
+    /* Looping through a collection using for */
 
     let my_array = [10, 20, 30, 40, 50];
 
@@ -74,7 +67,10 @@ fn main() {
     // This is slower than using a for-loop
     let mut index = 0;
     while index < my_array.len() {
-        println!("The value of my_array at index = {} is {}", index, my_array[index]);
+        println!(
+            "The value of my_array at index = {} is {}",
+            index, my_array[index]
+        );
         index += 1;
     }
 
@@ -92,15 +88,22 @@ fn main() {
     println!("LIFTOFF!");
 
     let tmp = 32.0;
-    println!("Fahrenheit to Celsius: {:.3}F = {:.3}C", tmp, temp_conversion(true, tmp));
+    println!(
+        "Fahrenheit to Celsius: {:.3}F = {:.3}C",
+        tmp,
+        temp_conversion(true, tmp)
+    );
     let tmp = 0.0;
-    println!("Celsius to Fahrenheit: {:.3}C = {:.3}F", tmp, temp_conversion(false, tmp));
+    println!(
+        "Celsius to Fahrenheit: {:.3}C = {:.3}F",
+        tmp,
+        temp_conversion(false, tmp)
+    );
 
     for num in 0..10 {
         println!("Fib = {}", fib(num));
     }
 }
-
 
 fn txtbk_loop() {
     let mut count = 0;
@@ -124,20 +127,19 @@ fn txtbk_loop() {
     println!("End count = {}", count);
 }
 
-/*
+/**
  * Converting between Fahrenheit and Celsius
  */
 
 fn temp_conversion(bin: bool, tmp: f64) -> f64 {
     if bin {
-        (tmp - 32.0) * 5.0/9.0
+        (tmp - 32.0) * 5.0 / 9.0
     } else {
-        tmp*9.0/5.0 + 32.0
+        tmp * 9.0 / 5.0 + 32.0
     }
 }
 
-
-/*
+/**
  * The nth Fibonacci Number
  */
 
@@ -145,6 +147,6 @@ fn fib(num: u32) -> u32 {
     match num {
         0 => 1,
         1 => 2,
-        _ => fib(num - 1) + fib(num -2)
+        _ => fib(num - 1) + fib(num - 2),
     }
 }

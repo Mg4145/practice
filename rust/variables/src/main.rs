@@ -169,8 +169,7 @@ fn main() {
 
 fn fibonacci(number: u32) -> u32 {
     match number {
-        0 => 0,
-        1 => 1,
+        0..=1 => number,
         _ => fibonacci(number - 1) + fibonacci(number - 2),
     }
 }
