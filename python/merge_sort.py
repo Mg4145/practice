@@ -2,7 +2,7 @@
 
 
 def merge(left, right):
-    """ Merge Function """
+    """Merge Function"""
     result = []
     while left and right:
         if left[0] <= right[0]:
@@ -17,7 +17,7 @@ def merge(left, right):
 
 
 def merge_sort(array):
-    """ Merge Sort Implementation """
+    """Merge Sort Implementation"""
     if len(array) <= 1:
         return array
     middle = len(array) // 2
@@ -27,12 +27,12 @@ def merge_sort(array):
 
 
 def main():
-    """ Main Function """
+    """Main Function"""
     array = [1, 3, 2, 5, 4, 6, 7, 8, 9, 10]
 
     print(array)
     print(merge_sort(array))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

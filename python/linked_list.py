@@ -45,7 +45,7 @@ class LinkedList:
         self.head = tmp
 
     def insert_at_end(self, data) -> None:
-        """ Insert data at the end of linked list """
+        """Insert data at the end of linked list"""
         if self.head is None:
             self.head = Node(data)
 
@@ -58,7 +58,7 @@ class LinkedList:
         current.next = Node(data)
 
     def remove(self, data) -> None:
-        """ Remove data from linked list
+        """Remove data from linked list
 
         Args:
         data: data to remove from linked list
@@ -77,7 +77,7 @@ class LinkedList:
             current = current.next
 
     def remove_duplicates(self) -> None:
-        """ Remove duplicates from linked list """
+        """Remove duplicates from linked list"""
 
         if self.head is None:
             return
@@ -103,6 +103,34 @@ class LinkedList:
             current = current.next
         if current is None:
             print("None")
+
+    def odd_even_list(self) -> None:
+        """Rearrange linked list so elements in odd index all
+        come before elements in even index
+
+        Example:
+        Idx:            1    2    3    4    5    6    7    8    9   10
+        Linked List:    1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
+        becomes
+
+        Idx:            1    3    5    7    9    2    4    6    8   10
+        Linked List:    1 -> 3 -> 5 -> 7 -> 9 -> 2 -> 4 -> 6 -> 8 -> 10
+        """
+
+        if self.head is None:
+            return
+
+        odd = self.head
+        even = self.head.next
+        even_head = even
+
+        while even is not None and even.next is not None:
+            odd.next = even.next
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+
+        odd.next = even_head
 
 
 def main():
@@ -130,6 +158,18 @@ def main():
     my_ll.print_list()
     print("After removing duplicates:")
     my_ll.remove_duplicates()
+    my_ll.print_list()
+    print(
+        "Deleting object and creating new linked list with 10 elements"
+        + " in ascending order"
+    )
+    del my_ll
+    my_ll = LinkedList()
+    for i in range(1, 11):
+        my_ll.insert(i)
+    my_ll.print_list()
+    print("Odd even list:")
+    my_ll.odd_even_list()
     my_ll.print_list()
 
 

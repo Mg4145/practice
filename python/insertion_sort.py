@@ -63,11 +63,11 @@ def main():
     # my_list = [3, 3, 1, 1, 1, 1, 1, 1]
     # my_list = [31, 41, 59, 26, 41, 58]
     # my_list = ["b", "e", "a", "n", "s"]
-    print(f'Original Array:\t\t{my_list}')
+    print(f"Original Array:\t\t{my_list}")
     insertion_sort(my_list)
-    print(f'Insertion Sort:\t\t{my_list}')
+    print(f"Insertion Sort:\t\t{my_list}")
     insertion_sort_inc(my_list)
-    print(f'Insertion Sort Incremented:\t\t{my_list}')
+    print(f"Insertion Sort Incremented:\t\t{my_list}")
 
 
 if __name__ == "__main__":
