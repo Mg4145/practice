@@ -1,11 +1,10 @@
-/*
+/**
  * Rust code uses snake_case for writing functions
- * For funciton signatures, you MUST declare the type of
+ * For function signatures, you MUST declare the type of
  * each parameter
  * If the function returns something by default you need not add a
  * semi colon at the end of the function
  */
-
 
 fn main() {
     another_function();
@@ -19,6 +18,10 @@ fn main() {
     };
 
     println!("The value of y is {}", y);
+    println!(
+        "The 10th fibonacci number is: {}",
+        fibonacci_number_match(10)
+    );
 }
 
 fn another_function() {
@@ -33,10 +36,17 @@ fn fn_diff_params(age: i32, name: &str) {
     println!("The value of this function is: {} {}", name, age)
 }
 
-fn fibonacci_number(fib: i32) -> i32 {
+fn fibonacci_number(fib: u32) -> u32 {
     if fib == 0 || fib == 1 {
         fib
     } else {
         fibonacci_number(fib - 1) + fibonacci_number(fib - 2)
+    }
+}
+
+fn fibonacci_number_match(fib: u32) -> u32 {
+    match fib {
+        0..=1 => fib,
+        _ => fibonacci_number_match(fib - 1) + fibonacci_number_match(fib - 2),
     }
 }
