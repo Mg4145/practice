@@ -23,39 +23,45 @@ class LinkedList:
 
     def insert(self, data) -> None:
         """Insert data into linked list"""
-        tmp = Node(data)
+        node = Node(data)
         if self.head is None:
             # If head is None, set head to tmp
-            self.head = tmp
+            self.head = node
+
         else:
-            # Else, traverse to end of list and set next to tmp
+        # Else, traverse to end of list and set next to tmp
             current = self.head
-            while current.next is not None:
+            while current.next:
                 current = current.next
 
-            current.next = Node(data)
+            current.next = node
 
     def insert_at_beginning(self, data) -> None:
         """Insert data at beginning of linked list"""
+        node = Node(data)
+
         if self.head is None:
             # If head is None, set head to tmp
-            self.head = Node(data)
-        tmp = Node(data)
-        tmp.next = self.head
-        self.head = tmp
+            self.head = node
+
+        node = Node(data)
+        node.next = self.head
+        self.head = node
 
     def insert_at_end(self, data) -> None:
         """Insert data at the end of linked list"""
+        new_node = Node(data)
+
+        # If linked list is not initatiated
         if self.head is None:
-            self.head = Node(data)
+            self.head = new_node
 
         # Traverse to end of list
         current = self.head
-
-        while current.next is not None:
+        while current.next:
             current = current.next
 
-        current.next = Node(data)
+        current.next = new_node
 
     def remove(self, data) -> None:
         """Remove data from linked list
@@ -67,7 +73,7 @@ class LinkedList:
         current = self.head
         previous = None
 
-        while current is not None:
+        while current:
             if current.data == data:
                 if previous is None:
                     self.head = current.next
@@ -84,11 +90,11 @@ class LinkedList:
 
         current = self.head
 
-        while current is not None:
+        while current:
             previous = current
             runner = current.next
 
-            while runner is not None:
+            while runner:
                 if runner.data == current.data:
                     previous.next = runner.next
                 previous = runner
@@ -101,6 +107,7 @@ class LinkedList:
         while current is not None:
             print(f"{current.data} -> ", end="")
             current = current.next
+
         if current is None:
             print("None")
 
@@ -131,6 +138,23 @@ class LinkedList:
             even = even.next
 
         odd.next = even_head
+
+    def reverse_list(self) -> None:
+        """Reverse linked list"""
+
+        if self.head is None:
+            return
+
+        previous = None
+        current = self.head
+
+        while current is not None:
+            next_node = current.next
+            current.next = previous
+            previous = current
+            current = next_node
+
+        self.head = previous
 
 
 def main():
