@@ -29,7 +29,7 @@ class LinkedList:
             self.head = node
 
         else:
-        # Else, traverse to end of list and set next to tmp
+            # Else, traverse to end of list and set next to tmp
             current = self.head
             while current.next:
                 current = current.next
@@ -62,6 +62,26 @@ class LinkedList:
             current = current.next
 
         current.next = new_node
+
+    def insert_at_index(self, data, position) -> None:
+        if self.head is None:
+            """If head is not initatiated."""
+            self.head = Node(data)
+
+        if position == 0:
+            """If position is at the beginning."""
+            node = Node(data)
+            node.next = self.head
+            self.head = node
+
+        """Otherwise, insert at some index."""
+        curr = self.head
+        while position - 1:
+            curr = curr.next
+            position -= 1
+        nxt = curr.next
+        curr.next = Node(data)
+        curr.next.next = nxt
 
     def remove(self, data) -> None:
         """Remove data from linked list
@@ -196,6 +216,15 @@ def main():
     my_ll.odd_even_list()
     my_ll.print_list()
 
+    ll = LinkedList()
+    ll.insert(16)
+    ll.insert(13)
+    ll.insert(7)
+    print(f"Before insertion")
+    ll.print_list()
+    ll.insert_at_index(1, 2)
+    print(f"After insertion")
+    ll.print_list()
 
 if __name__ == "__main__":
     main()
